@@ -1,5 +1,7 @@
 package com.journaldev.model;
-
+/**
+ * Simple person who works within some organization
+ */
 import java.util.Arrays;
 
 public class Employee {
