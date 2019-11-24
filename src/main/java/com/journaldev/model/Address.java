@@ -1,5 +1,5 @@
 package com.journaldev.model;
-
+/** this class represents a simple Address*/
 public class Address {
 	
 	private String street;
