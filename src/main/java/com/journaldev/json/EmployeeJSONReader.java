@@ -15,23 +15,14 @@ import com.journaldev.model.Employee;
 
 public class EmployeeJSONReader {
 
-	public static final String JSON_FILE="employee.txt";
+	public static final String JSON_FILE="data/employee.txt";
 	
 	public static void main(String[] args) throws IOException {
-		InputStream fis = new FileInputStream(JSON_FILE);
-		
+		InputStream fis = new FileInputStream(JSON_FILE);		
 		//create JsonReader object
-		JsonReader jsonReader = Json.createReader(fis);
-		
-		/**
-		 * We can create JsonReader from Factory also
-		JsonReaderFactory factory = Json.createReaderFactory(null);
-		jsonReader = factory.createReader(fis);
-		*/
-		
+		JsonReader jsonReader = Json.createReader(fis);	
 		//get JsonObject from JsonReader
 		JsonObject jsonObject = jsonReader.readObject();
-		
 		//we can close IO resource and JsonReader now
 		jsonReader.close();
 		fis.close();
@@ -49,7 +40,8 @@ public class EmployeeJSONReader {
 		long[] numbers = new long[jsonArray.size()];
 		int index = 0;
 		for(JsonValue value : jsonArray){
-			numbers[index++] = Long.parseLong(value.toString());
+			numbers[index] = Long.parseLong(value.toString());
+			index++;
 		}
 		emp.setPhoneNumbers(numbers);
 		

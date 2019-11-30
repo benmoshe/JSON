@@ -1,5 +1,14 @@
 package com.journaldev.json;
+/**
+ * Employee JSON String
+{"id":100,"name":"David",
+"permanent":false,"role":"Manager",
+"phoneNumbers":[123456,987654],
+"address":{"street":"BTM 1st Stage",
+"city":"Bangalore","zipcode":560100}
+}
 
+ */
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -27,9 +36,9 @@ public class EmployeeJSONWriter {
 			phoneNumBuilder.add(phone);
 		}
 		
-		addressBuilder.add("street", emp.getAddress().getStreet())
-						.add("city", emp.getAddress().getCity())
-							.add("zipcode", emp.getAddress().getZipcode());
+		addressBuilder.add("street", emp.getAddress().getStreet());
+		addressBuilder.add("city", emp.getAddress().getCity());
+		addressBuilder.add("zipcode", emp.getAddress().getZipcode());
 		
 		empBuilder.add("id", emp.getId())
 					.add("name", emp.getName())
